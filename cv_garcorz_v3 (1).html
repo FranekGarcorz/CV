@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Franciszek Garcorz — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:     #0a0a09;
+  --bg2:    #111110;
+  --bg3:    #181714;
+  --bg4:    #1e1d1a;
+  --mint:   #9dd4b5;
+  --mintd:  #6bb898;
+  --mintg:  rgba(157,212,181,0.08);
+  --mintb:  rgba(157,212,181,0.16);
+  --text:   #e6ddd0;
+  --sub:    #7a7268;
+  --faint:  rgba(255,235,200,0.055);
+  --warm:   #c9b898;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* subtle grain */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;mix-blend-mode:overlay;
+}
+
+/* ── LANG BAR ── */
+.lang-bar{
+  position:fixed;top:1.5rem;right:1.5rem;z-index:200;
+  display:flex;gap:2px;
+  background:var(--bg3);
+  border:1px solid var(--faint);
+  padding:3px;border-radius:8px;
+}
+.lang-btn{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.1em;
+  padding:6px 14px;border-radius:6px;border:none;
+  cursor:pointer;background:transparent;color:var(--sub);
+  transition:all .2s;
+}
+.lang-btn.active{background:var(--mint);color:#0a0a09;}
+
+/* ══════════════════ HERO ══════════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:5rem 2rem 3rem;
+  position:relative;overflow:hidden;
+}
+
+/* diagonal background accent */
+.hero::before{
+  content:'';position:absolute;
+  top:-10%;right:-5%;
+  width:55%;height:130%;
+  background:linear-gradient(160deg, rgba(157,212,181,0.04) 0%, transparent 60%);
+  transform:skewX(-8deg);
+  pointer-events:none;
+}
+
+/* top-right corner bracket decoration */
+.hero-bracket{
+  position:absolute;top:3rem;right:5rem;
+  width:60px;height:60px;
+  border-top:2px solid rgba(157,212,181,0.25);
+  border-right:2px solid rgba(157,212,181,0.25);
+  pointer-events:none;
+}
+.hero-bracket-bl{
+  position:absolute;bottom:5rem;left:3rem;
+  width:40px;height:40px;
+  border-bottom:2px solid rgba(157,212,181,0.12);
+  border-left:2px solid rgba(157,212,181,0.12);
+  pointer-events:none;
+}
+
+.hero-inner{max-width:900px;width:100%;position:relative;z-index:1;}
+
+.hero-status{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--bg3);
+  border:1px solid var(--faint);
+  border-left:3px solid var(--mint);
+  padding:8px 18px;
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mint);margin-bottom:2.5rem;
+}
+.hero-status-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--mint);
+  animation:blink 1.8s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.hero h1{
+  font-size:clamp(3.8rem,10vw,8.5rem);
+  font-weight:800;
+  line-height:.9;
+  letter-spacing:-.04em;
+  margin-bottom:.25rem;
+}
+.hero h1 .accent{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--mint);
+  display:block;
+}
+
+.hero-sub{
+  font-size:12px;font-weight:600;
+  color:var(--sub);
+  margin-top:1.5rem;margin-bottom:2.5rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-sub::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg, var(--faint), transparent);
+  max-width:180px;
+}
+
+.hero-contacts{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.5rem;}
+.cpill{
+  display:flex;align-items:center;gap:8px;
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:9px 18px;
+  font-size:12px;font-weight:500;
+  color:var(--text);text-decoration:none;
+  /* asymmetric — sharp bottom-left, rounded top-right */
+  border-radius:4px 16px 16px 4px;
+  transition:all .22s;
+}
+.cpill:hover{border-color:var(--mintb);color:var(--mint);transform:translateY(-2px);}
+.cpill svg{width:13px;height:13px;opacity:.45;flex-shrink:0;}
+
+.hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;}
+.chip{
+  background:var(--mintg);
+  border:1px solid var(--mintb);
+  color:var(--mint);
+  font-size:11px;font-weight:700;letter-spacing:.07em;
+  /* sharp left, rounded right */
+  border-radius:3px 12px 12px 3px;
+  padding:5px 14px;
+  transition:background .2s;
+}
+.chip:hover{background:rgba(157,212,181,0.13);}
+
+.scroll-cue{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--sub);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  animation:nudge 2.5s ease-in-out infinite;
+}
+.scroll-track{width:1px;height:36px;background:linear-gradient(to bottom,var(--mintd),transparent);}
+@keyframes nudge{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ══════════════════ LAYOUT ══════════════════ */
+main{max-width:900px;margin:0 auto;padding:0 2rem 7rem;}
+section{margin-bottom:7rem;}
+
+.sh{display:flex;align-items:center;gap:1.25rem;margin-bottom:2.75rem;}
+.sh-num{
+  font-size:11px;font-weight:800;letter-spacing:.18em;
+  color:var(--mint);text-transform:uppercase;
+  opacity:.7;min-width:28px;
+}
+.sh-title{font-size:1.55rem;font-weight:800;letter-spacing:-.03em;}
+.sh-rule{flex:1;height:1px;background:var(--faint);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:start;}
+.about-text{color:var(--sub);font-size:14px;line-height:1.95;font-weight:400;}
+.about-text b{color:var(--warm);font-weight:700;}
+
+/* stat cards — parallelogram shape via clip-path */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+.stat{
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:1.5rem 1.25rem;text-align:center;
+  position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+  /* cut top-right corner */
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+.stat:hover{border-color:var(--mintb);transform:translateY(-3px);}
+.stat::after{
+  content:'';position:absolute;
+  top:0;right:0;
+  width:0;height:0;
+  border-style:solid;
+  border-width:0 16px 16px 0;
+  border-color:transparent var(--bg) transparent transparent;
+}
+.stat-n{
+  font-size:2.6rem;font-weight:800;
+  color:var(--mint);line-height:1;
+  letter-spacing:-.04em;
+}
+.stat-l{
+  font-size:10px;font-weight:700;
+  color:var(--sub);margin-top:.4rem;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* ── EXPERIENCE ── */
+.exp-card{
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:2rem 2.25rem;
+  position:relative;overflow:hidden;
+  /* cut bottom-right corner */
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%);
+  transition:border-color .25s;
+}
+.exp-card:hover{border-color:var(--mintb);}
+.exp-card::before{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;
+  width:3px;
+  background:linear-gradient(to bottom, var(--mint), transparent);
+}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.85rem;}
+.exp-co{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;}
+.exp-role{
+  color:var(--mint);font-size:12px;font-weight:700;
+  margin-top:.25rem;letter-spacing:.06em;text-transform:uppercase;
+  display:flex;align-items:center;gap:.6rem;
+}
+.exp-tag{
+  background:var(--mintg);border:1px solid var(--mintb);
+  color:var(--mintd);font-size:9px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 10px;border-radius:3px;
+}
+.exp-meta{text-align:right;flex-shrink:0;}
+.exp-dates{font-size:11px;font-weight:700;color:var(--mintd);letter-spacing:.08em;text-transform:uppercase;}
+.exp-loc{font-size:11px;color:var(--sub);margin-top:3px;font-weight:500;}
+.exp-divider{height:1px;background:var(--faint);margin:.85rem 0;}
+.exp-list{list-style:none;}
+.exp-list li{
+  font-size:13px;color:var(--sub);
+  padding-left:1.25rem;position:relative;
+  margin-bottom:.4rem;line-height:1.75;
+}
+.exp-list li::before{
+  content:'';position:absolute;
+  left:0;top:.65em;
+  width:5px;height:5px;
+  background:var(--mintd);
+  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);/* diamond */
+}
+
+/* ── EDUCATION ── */
+.edu-card{
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:2.25rem 2.5rem;
+  /* cut top-left + bottom-right */
+  clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
+  position:relative;overflow:hidden;
+  transition:border-color .25s;
+}
+.edu-card:hover{border-color:var(--mintb);}
+.edu-card::after{
+  content:'';position:absolute;
+  bottom:-1px;right:-1px;
+  width:0;height:0;
+  border-style:solid;
+  border-width:0 0 20px 20px;
+  border-color:transparent transparent var(--bg) transparent;
+}
+.edu-school{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.2rem;}
+.edu-deg{color:var(--sub);font-size:13px;font-weight:500;margin-bottom:.85rem;}
+.edu-dates{font-size:11px;font-weight:700;color:var(--mintd);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;}
+.cert-wrap{display:flex;flex-direction:column;gap:.6rem;}
+.cert{
+  display:flex;align-items:center;gap:1rem;
+  background:rgba(157,212,181,0.04);
+  border:1px solid rgba(157,212,181,0.1);
+  padding:.7rem 1.25rem;
+  border-radius:4px 14px 4px 14px;/* alternating corners */
+  font-size:12px;
+  transition:border-color .2s;
+}
+.cert:hover{border-color:rgba(157,212,181,0.22);}
+.cert-id{font-size:1rem;font-weight:800;color:var(--mint);min-width:58px;letter-spacing:.04em;}
+.cert-desc{flex:1;color:var(--sub);}
+.cert-pct{font-weight:800;font-size:13px;color:var(--mint);margin-left:auto;}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.sk-panel{
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:1.75rem;
+  transition:border-color .25s;
+}
+.sk-panel:first-child{
+  /* sharp top-left, rounded others */
+  border-radius:0 18px 18px 18px;
+}
+.sk-panel:last-child{
+  /* rounded left, sharp bottom-right */
+  border-radius:18px 18px 0 18px;
+}
+.sk-panel:hover{border-color:var(--mintb);}
+.sk-head{
+  font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--sub);margin-bottom:1.5rem;
+  padding-bottom:.75rem;border-bottom:1px solid var(--faint);
+}
+.sk-row{margin-bottom:1rem;}
+.sk-row:last-child{margin-bottom:0;}
+.sk-top{display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:8px;}
+.sk-pct{font-size:11px;font-weight:600;color:var(--mintd);}
+.sk-track{height:2px;background:rgba(255,255,255,0.05);}
+.sk-fill{
+  height:100%;
+  background:linear-gradient(90deg,rgba(107,184,152,.5),var(--mint));
+  width:0%;
+  transition:width 1.4s cubic-bezier(.4,0,.2,1);
+  position:relative;
+}
+.sk-fill::after{
+  content:'';position:absolute;
+  right:-1px;top:-3px;
+  width:8px;height:8px;
+  background:var(--mint);
+  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
+  opacity:0;transition:opacity .4s .9s;
+}
+.sk-fill.lit::after{opacity:1;}
+
+/* ── LANGUAGES ── */
+.lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.lang-card{
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:1.75rem;
+  transition:border-color .25s,transform .25s;
+}
+/* different shape per card */
+.lang-card:nth-child(1){border-radius:20px 4px 20px 4px;}
+.lang-card:nth-child(2){border-radius:4px 20px 4px 20px;}
+.lang-card:hover{border-color:var(--mintb);transform:translateY(-3px);}
+.lang-name{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.2rem;}
+.lang-lv{font-size:11px;font-weight:700;color:var(--mintd);margin-bottom:1.25rem;letter-spacing:.08em;}
+.lang-dots{display:flex;gap:5px;}
+.ldot{
+  width:8px;height:8px;
+  background:rgba(255,255,255,0.06);
+  /* diamond dots */
+  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
+  transition:background .3s;
+}
+.ldot.on{background:var(--mint);}
+
+/* ── INTERESTS ── */
+.int-cloud{display:flex;flex-wrap:wrap;gap:.65rem;}
+.int-tag{
+  background:var(--bg3);border:1px solid var(--faint);
+  padding:10px 20px;font-size:13px;font-weight:600;
+  transition:all .22s;cursor:default;
+}
+/* alternating shapes */
+.int-tag:nth-child(odd){border-radius:4px 16px 4px 16px;}
+.int-tag:nth-child(even){border-radius:16px 4px 16px 4px;}
+.int-tag:hover{border-color:var(--mintb);color:var(--mint);transform:translateY(-2px);}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--faint);
+  padding:2.5rem 2rem;text-align:center;
+  font-size:11px;color:var(--sub);font-weight:500;
+  max-width:900px;margin:0 auto;letter-spacing:.04em;
+}
+.gdpr{margin-top:1rem;font-size:9px;opacity:.35;line-height:1.7;max-width:620px;margin-left:auto;margin-right:auto;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:640px){
+  .about-grid,.skills-grid,.lang-grid{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:3.8rem;}
+  .exp-head{flex-direction:column;gap:.5rem;}
+  .exp-meta{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('pl')">PL</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bracket"></div>
+  <div class="hero-bracket-bl"></div>
+  <div class="hero-inner">
+
+    <div class="hero-status">
+      <div class="hero-status-dot"></div>
+      <span data-pl="Dostępny do pracy" data-en="Open to work">Dostępny do pracy</span>
+    </div>
+
+    <h1>
+      Franciszek
+      <span class="accent">Garcorz</span>
+    </h1>
+
+    <div class="hero-sub" data-pl="Technik Programista · Mikołów, Polska" data-en="IT Technician · Mikołów, Poland">
+      Technik Programista · Mikołów, Polska
+    </div>
+
+    <div class="hero-contacts">
+      <a class="cpill" href="tel:576614022">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.99 5.99l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+        576 614 022
+      </a>
+      <a class="cpill" href="mailto:franciszekgarcorz15@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        franciszekgarcorz15@gmail.com
+      </a>
+      <span class="cpill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Mikołów, Polska
+      </span>
+    </div>
+
+    <div class="hero-chips">
+      <span class="chip">C# / .NET MAUI</span>
+      <span class="chip">HTML / CSS / JS</span>
+      <span class="chip">Angular</span>
+      <span class="chip">SQL / MySQL</span>
+      <span class="chip">INF.03 — 98%</span>
+      <span class="chip">INF.04 — 98%</span>
+    </div>
+
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-track"></div>
+    <span data-pl="PRZEWIŃ" data-en="SCROLL">PRZEWIŃ</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ABOUT -->
+  <section class="reveal">
+    <div class="sh">
+      <span class="sh-num">01</span>
+      <h2 class="sh-title" data-pl="O mnie" data-en="About me">O mnie</h2>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="about-grid">
+      <p class="about-text"
+        data-pl="Jestem absolwentem <b>Technikum Programistycznego w Mikołowie</b> (kierunek Technik Programista), gdzie zdobyłem solidne podstawy w programowaniu aplikacji, tworzeniu stron internetowych oraz pracy z bazami danych. Zdałem egzaminy zawodowe <b>INF.03</b> i <b>INF.04</b> z wynikiem 98%. Szukam swojej pierwszej pracy, aby rozwijać umiejętności w praktyce i zdobywać doświadczenie w branży IT."
+        data-en="I am a graduate of the <b>IT Technician programme in Mikołów</b>, where I built solid foundations in application development, web technologies, and database management. I passed the professional exams <b>INF.03</b> and <b>INF.04</b> with a score of 98%. I am looking for my first role to apply my skills in a real-world environment.">
+        Jestem absolwentem <b>Technikum Programistycznego w Mikołowie</b> (kierunek Technik Programista), gdzie zdobyłem solidne podstawy w programowaniu aplikacji, tworzeniu stron internetowych oraz pracy z bazami danych. Zdałem egzaminy zawodowe <b>INF.03</b> i <b>INF.04</b> z wynikiem 98%. Szukam swojej pierwszej pracy, aby rozwijać umiejętności w praktyce i zdobywać doświadczenie w branży IT.
+      </p>
+      <div class="stats">
+        <div class="stat"><div class="stat-n">98%</div><div class="stat-l" data-pl="Wynik INF.03" data-en="INF.03 score">Wynik INF.03</div></div>
+        <div class="stat"><div class="stat-n">98%</div><div class="stat-l" data-pl="Wynik INF.04" data-en="INF.04 score">Wynik INF.04</div></div>
+        <div class="stat"><div class="stat-n">6+</div><div class="stat-l" data-pl="Technologii" data-en="Technologies">Technologii</div></div>
+        <div class="stat"><div class="stat-n">2</div><div class="stat-l" data-pl="Języki obce" data-en="Languages">Języki obce</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="reveal">
+    <div class="sh">
+      <span class="sh-num">02</span>
+      <h2 class="sh-title" data-pl="Doświadczenie" data-en="Experience">Doświadczenie</h2>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-head">
+        <div>
+          <div class="exp-co">Auto Partner</div>
+          <div class="exp-role">
+            IT Help Desk
+            <span class="exp-tag" data-pl="Praktyki" data-en="Internship">Praktyki</span>
+          </div>
+        </div>
+        <div class="exp-meta">
+          <div class="exp-dates" data-pl="LUT 2024 — KWI 2024" data-en="FEB 2024 — APR 2024">LUT 2024 — KWI 2024</div>
+          <div class="exp-loc" data-pl="📍 Bieruń, Polska" data-en="📍 Bieruń, Poland">📍 Bieruń, Polska</div>
+        </div>
+      </div>
+      <div class="exp-divider"></div>
+      <ul class="exp-list">
+        <li data-pl="Zapewniałem wsparcie techniczne sprzętu i oprogramowania oraz diagnozowałem usterki w środowisku IT." data-en="Provided hardware and software technical support and diagnosed issues across the IT environment.">Zapewniałem wsparcie techniczne sprzętu i oprogramowania oraz diagnozowałem usterki w środowisku IT.</li>
+        <li data-pl="Dbałem o ciągłość działania wewnętrznych systemów logistycznych i operacji firmy." data-en="Ensured continuity of internal logistics systems and operations.">Dbałem o ciągłość działania wewnętrznych systemów logistycznych i operacji firmy.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="reveal">
+    <div class="sh">
+      <span class="sh-num">03</span>
+      <h2 class="sh-title" data-pl="Wykształcenie" data-en="Education">Wykształcenie</h2>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-school">ZST Mikołów</div>
+      <div class="edu-deg" data-pl="Technik Programista" data-en="IT Technician">Technik Programista</div>
+      <div class="edu-dates" data-pl="WRZESIEŃ 2020 — MAJ 2025" data-en="SEPTEMBER 2020 — MAY 2025">WRZESIEŃ 2020 — MAJ 2025</div>
+      <div class="cert-wrap">
+        <div class="cert">
+          <span class="cert-id">INF.03</span>
+          <span class="cert-desc" data-pl="Tworzenie i administrowanie stronami i aplikacjami internetowymi" data-en="Web Application Development &amp; Administration">Tworzenie i administrowanie stronami i aplikacjami internetowymi</span>
+          <span class="cert-pct">98%</span>
+        </div>
+        <div class="cert">
+          <span class="cert-id">INF.04</span>
+          <span class="cert-desc" data-pl="Projektowanie, programowanie i testowanie aplikacji" data-en="Designing, Programming &amp; Testing Applications">Projektowanie, programowanie i testowanie aplikacji</span>
+          <span class="cert-pct">98%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="reveal">
+    <div class="sh">
+      <span class="sh-num">04</span>
+      <h2 class="sh-title" data-pl="Umiejętności" data-en="Skills">Umiejętności</h2>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-panel">
+        <div class="sk-head" data-pl="Technologie" data-en="Technologies">Technologie</div>
+        <div class="sk-row"><div class="sk-top"><span>HTML / CSS / JavaScript</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" data-pct="80"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span>C# / .NET MAUI</span><span class="sk-pct">70%</span></div><div class="sk-track"><div class="sk-fill" data-pct="70"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span>MySQL / SQLite</span><span class="sk-pct">65%</span></div><div class="sk-track"><div class="sk-fill" data-pct="65"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span>C++</span><span class="sk-pct">50%</span></div><div class="sk-track"><div class="sk-fill" data-pct="50"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span>Angular</span><span class="sk-pct">30%</span></div><div class="sk-track"><div class="sk-fill" data-pct="30"></div></div></div>
+      </div>
+      <div class="sk-panel">
+        <div class="sk-head" data-pl="Kompetencje miękkie" data-en="Soft skills">Kompetencje miękkie</div>
+        <div class="sk-row"><div class="sk-top"><span data-pl="Komunikatywność" data-en="Communication">Komunikatywność</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" data-pct="90"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span data-pl="Praca w zespole" data-en="Teamwork">Praca w zespole</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" data-pct="85"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span data-pl="Kreatywność" data-en="Creativity">Kreatywność</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" data-pct="80"></div></div></div>
+        <div class="sk-row"><div class="sk-top"><span data-pl="Samodzielność" data-en="Independence">Samodzielność</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" data-pct="80"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="reveal">
+    <div class="sh">
+      <span class="sh-num">05</span>
+      <h2 class="sh-title" data-pl="Języki" data-en="Languages">Języki</h2>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="lang-name" data-pl="Polski" data-en="Polish">Polski</div>
+        <div class="lang-lv" data-pl="Język ojczysty" data-en="Native">Język ojczysty</div>
+        <div class="lang-dots">
+          <div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-name" data-pl="Angielski" data-en="English">Angielski</div>
+        <div class="lang-lv">B2+</div>
+        <div class="lang-dots">
+          <div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section class="reveal">
+    <div class="sh">
+      <span class="sh-num">06</span>
+      <h2 class="sh-title" data-pl="Zainteresowania" data-en="Interests">Zainteresowania</h2>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="int-cloud">
+      <span class="int-tag">✈️ <span data-pl="Podróżowanie" data-en="Travelling">Podróżowanie</span></span>
+      <span class="int-tag">🎿 <span data-pl="Sporty zimowe" data-en="Winter sports">Sporty zimowe</span></span>
+      <span class="int-tag">🌍 <span data-pl="Języki obce" data-en="Foreign languages">Języki obce</span></span>
+      <span class="int-tag">💻 <span data-pl="Programowanie" data-en="Coding">Programowanie</span></span>
+      <span class="int-tag">🍳 <span data-pl="Gotowanie" data-en="Cooking">Gotowanie</span></span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>Franciszek Garcorz · <span data-pl="Mikołów, Polska" data-en="Mikołów, Poland">Mikołów, Polska</span> · 576 614 022</div>
+  <div class="gdpr"
+    data-pl="Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)."
+    data-en="I consent to the processing of my personal data for the purposes necessary to carry out the recruitment process in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).">
+    Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-pl]').forEach(el=>{
+    el.innerHTML = lang==='pl' ? el.dataset.pl : el.dataset.en;
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.textContent===lang.toUpperCase());
+  });
+}
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.sk-fill').forEach(b=>{
+        b.style.width = b.dataset.pct+'%';
+        setTimeout(()=>b.classList.add('lit'),900);
+      });
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
